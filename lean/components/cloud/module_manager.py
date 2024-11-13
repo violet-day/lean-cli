@@ -122,7 +122,7 @@ class ModuleManager:
             if product_id not in self._installed_packages:
                 self._installed_packages[product_id] = []
             self._installed_packages[product_id].append(package)
-            self._logger.debug(f"ModuleManager._download_file(): {package_file} already exists locally")
+            print(f"ModuleManager._download_file(): {package_file} already exists locally")
             return
 
         self._logger.info(f"Downloading '{package_file.name}'")
