@@ -117,7 +117,7 @@ class ModuleManager:
         :param package: the NuGet package to download
         """
         package_file = Path(MODULES_DIRECTORY) / package.get_file_name()
-
+        self._logger.debug(f'try get from {package_file}')
         if package_file.is_file():
             if product_id not in self._installed_packages:
                 self._installed_packages[product_id] = []
