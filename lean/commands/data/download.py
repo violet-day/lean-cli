@@ -719,7 +719,7 @@ def download(ctx: Context,
                   type="bind",
                   read_only=True)
         )
-
+        print(f'{engine_image}, {run_options}')
         success = container.docker_manager.run_image(engine_image, **run_options)
 
         if not success:
