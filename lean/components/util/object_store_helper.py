@@ -16,11 +16,13 @@ from lean.components.config.lean_config_manager import LeanConfigManager
 def open_storage_directory_in_explorer(lean_config_manager: LeanConfigManager):
     """Opens the storage directory in the file explorer."""
     global_storage_directory_path = lean_config_manager.get_cli_root_directory() / "storage"
+    print(f'global_storage_directory_path {global_storage_directory_path}')
     if not global_storage_directory_path.exists():
         global_storage_directory_path.mkdir(parents=True)
     open_file_explorer(str(global_storage_directory_path))
-    
+
 def open_file_explorer(directory_path: str):
     """Opens the given directory in the file explorer."""
+    print(f'directory_path {directory_path}')
     from webbrowser import open
     open('file:///' + directory_path)
