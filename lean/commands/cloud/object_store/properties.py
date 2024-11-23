@@ -27,6 +27,7 @@ def properties(key: str):
     organization_id = container.organization_manager.try_get_working_organization_id()
     api_client = container.api_client
     logger = container.logger
+    print('properties', key, organization_id)
     data = api_client.object_store.properties(key, organization_id)
 
     try:
