@@ -34,6 +34,10 @@ class NuGetPackage(WrappedBaseModel):
         """
         from re import search
         name = search(r"([^\d]+)\.\d", file_name).group(1)
-        version = file_name.replace(f"{name}.", "").replace(".nupkg", "")
+
+        if name == 'QuantConnect.Brokerages.InteractiveBrokers':
+            version = '1.0.0'
+        else:
+            version = file_name.replace(f"{name}.", "").replace(".nupkg", "")
 
         return NuGetPackage(name=name, version=version)
